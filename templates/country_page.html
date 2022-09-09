@@ -7,7 +7,7 @@
 <body>
 <a href="/">Главная</a><br>
 <a href="/countries-list">к списку стран</a>
-<h2>{{ country.name }}</h2>
+<h2>Языки страны {{ country.name }}</h2>
 <ul>
     {% for language in country.languages %}
         <li><a href="/countries-list/{{ language }}">{{ language }}</a></li>
