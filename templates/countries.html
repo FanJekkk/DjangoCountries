@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Страны</title>
-</head>
-<body>
-<a href="/">Главная</a><br>
+{% extends 'base.html'%}
+{% block title %}Страны{% endblock %}
+{% block content%}
 {% for word in alphabet %}
     <a href="?word={{ word }}">{{ word }}</a>
 {% endfor %}
 <ol>
     {% for name in page_countries %}
-        <li><a href="/country/{{ name }}">{{ name }}</a></li>
+        <li><a href="{% url 'country' name %}">{{ name }}</a></li>
     {% endfor %}
 </ol>
 <div class="pagination">
@@ -31,5 +26,4 @@
         {% endif %}
     </span>
 </div>
-</body>
-</html>
+{% endblock %}

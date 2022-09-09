@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная</title>
-</head>
-<body>
+{% extends 'base.html'%}
+{% block title %}Главная{% endblock %}
+{% block content%}
+<main>
 <h1>Добро пожаловать!</h1>
-<a href='/countries-list'>Список стран</a>
-<a href='languages/'>Языки</a>
-</body>
-</html>
+</main>
+{% endblock %}
