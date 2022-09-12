@@ -1,9 +1,12 @@
 {% extends 'base.html'%}
 {% block title %}Языки{% endblock %}
 {% block content%}
-<ol>
+{% for word in alphabet %}
+<a href="?word={{ word }}"><button class="btn btn-info mb-4">{{ word }}</button></a>
+{% endfor %}
+<ol class = "m-4">
     {% for language in languages %}
-        <li><a href="{% url 'countries_languages' language %}"> {{ language }}</a></li>
+        <div class="mb-4"><li><a href="{% url 'countries_languages' language %}"> {{ language }}</a></li></div>
     {% endfor %}
 </ol>
 {% endblock %}

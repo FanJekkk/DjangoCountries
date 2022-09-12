@@ -3,11 +3,11 @@
     <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Главная</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link {% if request.resolver_match.url_name == 'country' %}active
-    {% elif request.resolver_match.url_name == 'countries'%}active
+    <a class="nav-link {% if request.resolver_match.url_name == 'countries'%}active
     {% elif request.resolver_match.url_name == 'countries_languages'%}active{% endif %}" href = "{% url 'countries' %}">Список стран</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link {% if request.resolver_match.url_name == 'languages' %}active{% endif %}" href = "{% url 'languages' %}">Языки</a>
+    <a class="nav-link {% if request.resolver_match.url_name == 'languages' %}active
+    {% elif request.resolver_match.url_name == 'country' %}active{% endif %}" href = "{% url 'languages' %}">Языки</a>
   </li>
 </ul>

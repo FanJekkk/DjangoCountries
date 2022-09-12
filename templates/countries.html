@@ -2,18 +2,23 @@
 {% block title %}Страны{% endblock %}
 {% block content%}
 {% for word in alphabet %}
-    <a href="?word={{ word }}">{{ word }}</a>
+<a href="?word={{ word }}"><button class="btn btn-info mb-4">{{ word }}</button></a>
 {% endfor %}
 <ol>
     {% for name in page_countries %}
-        <li><a href="{% url 'country' name %}">{{ name }}</a></li>
+    <div class = "mb-4"><li><a href="{% url 'country' name.country %}">{{ name.country }}</a></li></div>
     {% endfor %}
 </ol>
 <div class="pagination">
     <span class="step-links">
         {% if page_countries.has_previous %}
-            <a href="?page=1&word={{ word }}">&laquo; Первая</a>
-            <a href="?page={{ page_countries.previous_page_number }}&word={{ word }}">Назад</a>
+            {% if word == None %}
+            <a href="?page=1"><button class="btn btn-info">&laquo; Первая</button></a>
+            <a href="?page={{ page_countries.previous_page_number }}"><button class="btn btn-info">Назад</button></a>
+            {% else %}
+            <a href="?page=1&word={{ word }}"><button class="btn btn-info">&laquo; Первая</button></a>
+            <a href="?page={{ page_countries.previous_page_number }}&word={{ word }}"><button class="btn btn-info">Назад</button></a>
+            {% endif %}
         {% endif %}
         <span class="current">
             Страница {{ page_countries.number }} из {{ page_countries.paginator.num_pages }}.
@@ -21,8 +26,13 @@
 
 
         {% if page_countries.has_next %}
-            <a href="?page={{ page_countries.next_page_number }}&word={{ word }}">Далее</a>
-            <a href="?page={{ page_countries.paginator.num_pages }}&word={{ word }}">Последняя &raquo;</a>
+            {% if word == None %}
+        <a href="?page={{ page_countries.next_page_number }}"><button class="btn btn-info">Далее</button></a>
+        <a href="?page={{ page_countries.paginator.num_pages }}"><button class="btn btn-info">Последняя &raquo;</button></a>
+            {%else%}
+        <a href="?page={{ page_countries.next_page_number }}&word={{ word }}"><button class="btn btn-info">Далее</button></a>
+        <a href="?page={{ page_countries.paginator.num_pages }}&word={{ word }}"><button class="btn btn-info">Последняя &raquo;</button></a>
+            {%endif%}
         {% endif %}
     </span>
 </div>

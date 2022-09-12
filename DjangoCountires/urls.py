@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from MainApp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -23,4 +25,5 @@ urlpatterns = [
     path('country/<str:country_name>',views.country_page, name="country"),
     path('countries-list/<str:language>', views.countries_languages, name="countries_languages"),
     path('languages/', views.languages, name="languages")
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
