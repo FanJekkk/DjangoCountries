@@ -8,10 +8,15 @@ from MainApp.models import Country
 
 with open("data/countries-list.json") as f:
     countries_data = json.load(f)
+
+# Использовать глобальные переменные крайне не рекомендуется
+# ТЕм более, что в рамках данного проекта в этом нет никакой необходимости
 COUNTRIES_ON_PAGE = 10
 langs = set()
 lg = Country.objects.values('languages')
 
+# Форматируйте код в соответствии со стандартом оформления PEP-8
+# Например, в PyCharm достаточно нажать: Ctrl + Alt + L - для автоформатирования по PEP-8
 def home(request):
     return render(request,"index.html")
 
