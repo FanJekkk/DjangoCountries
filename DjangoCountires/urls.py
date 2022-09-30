@@ -27,3 +27,7 @@ urlpatterns = [
     path('languages/', views.languages, name="languages")
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
+# Вы создали неплохой .gitignore, но, видимо, вы сначала сделали коммит, а только потом добавили gitignore:
+# 1. Настройки PyCharm(.idea) также ошибочно были затянуты в репозиторий
+# 2. Файл .DS_Store - определенной в репозитории лишний
+# 3. Файл БД тоже попал в репозиторий
