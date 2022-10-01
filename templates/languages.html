@@ -6,7 +6,7 @@
 {% endfor %}
 <ol class = "m-4">
     {% for language in languages %}
-        <div class="mb-4"><li><a href="{% url 'countries_languages' language %}"> {{ language }}</a></li></div>
+        <div class="mb-4"><li><a href="{% url 'countries_languages' language.name %}"> {{ language.name }}</a></li></div>
     {% endfor %}
 </ol>
 {% endblock %}

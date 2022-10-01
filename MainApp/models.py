@@ -8,7 +8,10 @@ from django.db import models
 # тут: https://docs.djangoproject.com/en/4.1/topics/db/examples/many_to_many/#many-to-many-relationships
 # тут: https://metanit.com/python/django/5.7.php
 # или тут: https://django.fun/ru/docs/django/4.0/topics/db/examples/many_to_many/#many-to-many-relationships
-class Country(models.Model):
-   country = models.CharField(max_length=100)
-   languages = models.CharField(max_length=5000)
+class Language(models.Model):
+    name = models.CharField(max_length=100, unique=True)
 
+
+class Country(models.Model):
+    name = models.CharField(max_length=100)
+    languages = models.ManyToManyField(Language)

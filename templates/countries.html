@@ -5,8 +5,8 @@
 <a href="?word={{ word }}"><button class="btn btn-info mb-4">{{ word }}</button></a>
 {% endfor %}
 <ol>
-    {% for name in page_countries %}
-    <div class = "mb-4"><li><a href="{% url 'country' name.country %}">{{ name.country }}</a></li></div>
+    {% for country in page_countries %}
+    <div class = "mb-4"><li><a href="{% url 'country' country.name %}">{{ country.name }}</a></li></div>
     {% endfor %}
 </ol>
 <div class="pagination">
